@@ -1,12 +1,22 @@
-div#page
-  div.container.clearfix id="main-content"
-    div.row-fluid
-      div.login-box.clearfix
-        h2
-          = t("users.sign_in")
-        = simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-vertical'}) do |f|
+div.row-fluid
+  div.span9
+    div.box
+      = simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-vertical'}) do |f|
+        fieldset
+          legend
+            = t("common.login")
           = f.input :email, :autofocus => true
           = f.input :password
-          = f.input :remember_me, :as => :boolean if devise_mapping.rememberable?
-          = f.button :submit, t("users.sign_in"), :class => 'btn-primary'
-        = render "devise/shared/links"
+          div.control-group.checkbox.optional
+            div.controls
+              div.inputs-list
+                label for="user_remember_me"
+                  = f.check_box :remember_me, :as => :boolean if devise_mapping.rememberable?
+                  = t("common.remember_me")
+
+          = f.button :submit, t("common.logining"), :class => 'btn-primary'
+  div.span3.sidebar
+    aside.widget.cleanfix
+      div.box
+        h2 还没有帐号？
+        = render :partial => "devise/shared/links"  

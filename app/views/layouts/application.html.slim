@@ -10,19 +10,19 @@ html
     meta name="apple-mobile-web-app-capable" content="yes"
       
     = stylesheet_link_tag "front"
-    = stylesheet_link_tag "application", :media => "all"
     = controller_stylesheet_link_tag
     = csrf_meta_tag
   body
     = render 'layouts/nav'
     div.container
-      - if controller_name == "topics"
-        div.hidden-phone
-          = render_breadcrumb
-        div.feed_link.hidden-phone
-          = link_to(raw("<span class='icon-plus'></span> 发布新贴"), new_topic_path)
-      = notice_message
-      == yield
+      div.container-fluid#main
+        - if controller_name == "topics"
+          div.hidden-phone
+            = render_breadcrumb
+          div.feed_link.hidden-phone
+            = link_to(raw("<span class='icon-plus'></span> 发布新贴"), new_topic_path)
+        = notice_message
+        == yield
     /= render 'layouts/footer'
     = javascript_include_tag "application"
     = controller_javascript_include_tag

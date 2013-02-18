@@ -22,6 +22,11 @@ a:hover {
   text-decoration: underline;  
 }
 
+body {
+  padding-top: 60px;
+}  
+
+.container { width:960px; }
 .container-fluid { padding:0; }
 .container-fluid > .sidebar {
   position:absolute;
@@ -35,6 +40,9 @@ a:hover {
   margin-left:0;
   margin-right: 260px;
 }
+
+#main { position:relative;}
+#main h1 { font-size:14px; line-height:26px; font-weight:bold; text-align:right; color:#333; margin-bottom:10px; }
 
 .box {
   background-color: #fff;
@@ -100,3 +108,42 @@ a:hover {
     }
   }
 }
+
+fieldset { margin-bottom:0;}
+fieldset legend { font-size:16px; font-weight:bold;}  
+
+.clearfix {
+  margin-bottom: 18px;
+  zoom: 1;
+  &:before, &:after {
+    display: table;
+    content: "";
+    zoom: 1;
+  }
+  &:after {
+    clear: both;
+  }
+}  
+
+#error_page {
+  padding:60px;
+  h1 { font-size:600%; color:#aaa; margin-bottom:100px;}
+  p { font-size:16px; }
+}
+
+.no_result { text-align:center; color:#999; }
+
+.go_top {
+  background: #FFF;
+  text-align: center;
+  border:1px solid #eee;
+  display:none;
+  height:20px; width:24px;
+  padding-top:4px; overflow:hidden;
+  border-radius:6px;
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+}
+
+img.emoji { width:20px; height:20px; }  
