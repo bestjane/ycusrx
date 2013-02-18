@@ -1,0 +1,28 @@
+div#page
+  div.container.clearfix id="main-content"
+    div.row-fluid.sidebar-right
+      div.span9.blog-detail.primary-column
+        div.box
+          = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :multipart => true, :class => 'form-vertical'}) do |f|
+            = f.error_notification
+            = display_base_errors resource
+            fieldset
+              legend
+                = t("users.personal_information")
+              = f.input :name, :required => true, :disabled => (!resource.name.blank?)
+              = f.input :email, :required => true, :disabled => (!resource.email.blank?)
+              = f.file_field :avatar, :label => '头像'
+              br
+              - if current_user.avatar.url.present?
+                /= f.label :remove_avatar do
+                label.checkbox.inline
+                  = f.check_box :remove_avatar
+                  = label_tag "删除当前头像"
+              = f.hidden_field :avatar_cache
+              = f.input :current_password, :hint => "进行修改需输入当前密码", :required => true, :label => "当前密码："
+              = f.input :password, :required => false
+              = f.input :password_confirmation, :required => false
+              = f.button :submit, '更新资料', :class => 'btn-primary'
+      div.span3.sidebar.secondary-column#secondary-nav
+        div.box style="text-align: center;"
+          = user_avatar_tag(current_user, :big)

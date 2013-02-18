@@ -1,0 +1,7 @@
+div class="container"
+  div class="subnav subnav-fixed"
+    ul class="nav nav-tabs"
+      li class=(controller_name == 'home' ? 'active' : nil)
+        = link_to '首页', root_path
+      li class=(controller_name == 'train' ? 'active' : nil)
+        = link_to '培训', train_index_path

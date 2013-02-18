@@ -1,0 +1,9 @@
+#sections.box
+  h2= t("common.index_node_navigation")
+  ul
+    - @sections.each do |section|
+      li
+        label= section.name
+        span.nodes
+          - section.nodes.each do |node|
+            = link_to(node.name, node_topics_path(node), :title => node.name )

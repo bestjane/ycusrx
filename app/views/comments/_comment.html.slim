@@ -1,0 +1,16 @@
+- floor = comment_counter + 1 + ((@current_page - 1) * AppConfig.pagination_comments)
+div.reply
+  div.pull-left.face
+    = user_avatar_tag(comment.user, :normal)
+  div.infos
+    div.info
+      span.name
+        = user_name_tag(comment.user)
+        = " #{floor} #{t("common.floor")}, #{time_ago_in_words(comment.created_at)}" 
+      span.opts
+        - if can? :update, comment
+          = link_to("", edit_topic_comment_path(commentable, comment), :class => "icon-edit", 'data-uid' => comment.user_id, :title => "修改回帖")
+        - if current_user  
+          = link_to("", "#", 'data-floor' => floor, 'data-login' => comment.user.name, :title => t("topics.reply_this_floor"), :class => "icon-comment-alt")
+    div.body    
+      = raw comment.content_html

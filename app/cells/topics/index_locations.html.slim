@@ -1,0 +1,5 @@
+#hot_locations.box
+  h2= t("common.hot_locations")
+  ul
+    - @hot_locations.each do |item|
+      li.name= location_name_tag(item)

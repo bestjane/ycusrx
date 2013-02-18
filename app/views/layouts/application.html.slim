@@ -1,0 +1,28 @@
+doctype 5
+html
+  head
+    = render_page_title
+    meta charset="utf-8"
+    meta content="IT培训 品牌台式机 笔记本 DIY装机" name="description"
+    meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"
+    meta name="keywords" content="template language"
+    meta name="viewport" content="width=device-width initial-scale=1.0"
+    meta name="apple-mobile-web-app-capable" content="yes"
+      
+    = stylesheet_link_tag "front"
+    = stylesheet_link_tag "application", :media => "all"
+    = controller_stylesheet_link_tag
+    = csrf_meta_tag
+  body
+    = render 'layouts/nav'
+    div.container
+      - if controller_name == "topics"
+        div.hidden-phone
+          = render_breadcrumb
+        div.feed_link.hidden-phone
+          = link_to(raw("<span class='icon-plus'></span> 发布新贴"), new_topic_path)
+      = notice_message
+      == yield
+    /= render 'layouts/footer'
+    = javascript_include_tag "application"
+    = controller_javascript_include_tag

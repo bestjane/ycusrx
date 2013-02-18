@@ -1,0 +1,11 @@
+= simple_form_for(@node) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name
+    = f.input :key
+    = f.input :introduction
+    = f.input :custom_html
+
+  .form-actions
+    = f.button :submit

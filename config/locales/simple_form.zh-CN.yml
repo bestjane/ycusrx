@@ -1,0 +1,32 @@
+"zh-CN":
+  simple_form:
+    "yes": '是'
+    "no": '否'
+    required:
+      text: '必需'
+      mark: '*'
+      # You can uncomment the line below if you need to overwrite the whole required html.
+      # When using html, text and mark won't be used.
+      # html: '<abbr title="required">*</abbr>'
+    error_notification:
+      default_message: "请检查以下错误："
+    # Labels and hints examples
+    labels:
+      registrations:
+        current_password: '当前密码：'
+      topic:
+        title: '标题：'
+        content: '正文：'
+    #   defaults:
+    #     password: 'Password'
+    #   user:
+    #     new:
+    #       email: 'E-mail to sign in.'
+    #     edit:
+    #       email: 'E-mail.'
+    # hints:
+    #   defaults:
+    #     username: 'User name to sign in.'
+    #     password: 'No special characters, please.'
+
+

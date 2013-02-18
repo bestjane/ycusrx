@@ -1,0 +1,28 @@
+# Add account credentials and API keys here.
+# See http://railsapps.github.com/rails-environment-variables.html
+# This file should be listed in .gitignore to keep your settings secret!
+# Each entry sets a local environment variable and overrides ENV variables in the Unix shell.
+# For example, setting:
+# GMAIL_USERNAME: Your_Gmail_Username
+# makes 'Your_Gmail_Username' available as ENV["GMAIL_USERNAME"]
+# Add application configuration variables here, as shown below.
+#
+defaults: &defaults
+  app_name: 宜春学院三人行
+  admin_name: admin
+  admin_email: admin@admin.com
+  admin_password: test1234
+  roles: [registered, banned, moderator, admin]
+  nodes: [灌水, 活动]
+  twitter_id: "DingIT"
+  pagination_topics: 15
+  pagination_comments: 15
+
+development:  
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production: 
+  <<: *defaults

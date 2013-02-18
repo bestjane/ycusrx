@@ -1,0 +1,8 @@
+.box
+  .btn-group
+    = link_to(t("topics.start_a_new_topic_button"), new_topic_path, :class => "btn btn-success" )
+    button.btn.btn-success.dropdown-toggle data-toggle="dropdown"
+      span.caret
+    ul.dropdown-menu
+      - @hot_nodes.each do |node|
+        li= link_to(node.name, new_topic_path(:node => node.id))

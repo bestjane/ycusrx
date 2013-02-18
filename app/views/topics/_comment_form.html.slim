@@ -1,0 +1,5 @@
+= form_for([@topic, @new_comment], :remote => true) do |f|
+  = f.text_area :content, :class => "topic_editor", :rows => "5", :tabindex => "1"
+  = f.submit t("topics.submit_reply"), :class => 'btn btn-primary', :tabindex => "2", :data => { :disable_with => "正在提交"}
+  span.help-inline
+    | Ctrl+Enter

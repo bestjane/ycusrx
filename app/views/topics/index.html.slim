@@ -1,0 +1,14 @@
+div#page
+  = render "topics/nav"
+  div.container.clearfix id="main-content"
+    div.row-fluid.sidebar-right
+      div.span9.blog-detail.primary-column
+        div.box.box_gray
+          div#node_info
+            = render "topics/node_info", :node => @node
+          div.topics
+            = render @topics
+          - if !@topics.blank?
+            = paginate @topics
+      div.span3.sidebar.secondary-column#secondary-nav
+        = render "sidebar_for_topic_index" if action_name.in?(%w(index))

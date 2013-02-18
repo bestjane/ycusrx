@@ -1,0 +1,8 @@
+aside.widget.cleanfix
+  .sticky_topics.box
+    h2= t("common.highlight_topic")
+    ul
+      - @sticky_topics.each do |item|
+        li
+          = user_avatar_tag(item.user, :small)
+          = link_to(item.title, topic_path(item))

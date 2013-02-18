@@ -1,0 +1,12 @@
+p#notice = notice
+
+p
+  strong User:
+  = @photo.user_id
+p
+  strong Image:
+  = @photo.image
+
+= link_to 'Edit', edit_photo_path(@photo)
+'|
+= link_to 'Back', photos_path

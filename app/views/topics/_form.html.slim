@@ -1,0 +1,27 @@
+= simple_form_for(@topic) do |f|
+  = f.error_notification
+  h4
+    | 所属节点
+    small.muted
+      | （至少选择一个）
+  - Node.all.each do |node|
+    label.checkbox.inline
+      - if @topic.nodes.include?(node) or Node.count == 1
+        = check_box_tag 'topic[node_ids][]', node.id, :checked => true
+      - else
+        = check_box_tag 'topic[node_ids][]', node.id
+      = label_tag node.name
+  = f.input :title do
+    = f.text_field :title, :style => "width:100%;"
+  = f.label :content
+
+  div.control-grounp.edit_tools
+    label.control-label
+      div.controls
+        = render "editor_toolbar"
+        
+  = f.text_area :content, :class => "topic_editor", :rows => "5", :tabindex => "1"
+
+  div.btn-group
+    = f.submit t("common.save"), :class => "btn btn-primary", 'data-disaable-with' => t("common.saving")
+    = link_to(t("common.cancel"), @topic.id.blank? ? topics_path : topic_path(@topic), :class => "btn")

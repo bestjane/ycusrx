@@ -1,0 +1,6 @@
+- if !@node.blank?
+  .box style="text-align:center;"
+    h2= link_to(@node.name,  node_topics_path(@node))
+    = render_node_summary(@node) if ["new"].index(params[:action])
+    .content
+      = link_to(t("topics.start_a_new_topic_button"), new_topic_path(:node => @node.id), :class => "btn btn-success")

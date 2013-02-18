@@ -1,0 +1,9 @@
+div#page
+  == render "topics/nav"
+  div.container.clearfix id="main-content"
+    div.row-fluid.sidebar-right
+      div.span9.blog-detail.primary-column
+        div.form.box#reply
+          == render 'form'
+      div.span3.sidebar.secondary-column#secondary-nav
+        = render "sidebar_for_help"

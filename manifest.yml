@@ -1,0 +1,17 @@
+---
+applications:
+  .:
+    name: ycusrx
+    framework:
+      name: rails3
+      info:
+        mem: 256M
+        description: Rails Application
+        exec: 
+    infra: ap-aws
+    url: ${name}.${target-base}
+    mem: 768M
+    instances: 2
+    services:
+      postgresql-74f0:
+        type: postgresql

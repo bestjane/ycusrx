@@ -1,0 +1,18 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @node.name
+p
+  strong Key:
+  = @node.key
+p
+  strong Introduction:
+  = @node.introduction
+p
+  strong Custom html:
+  = @node.custom_html
+
+= link_to 'Edit', edit_node_path(@node)
+'|
+= link_to 'Back', nodes_path

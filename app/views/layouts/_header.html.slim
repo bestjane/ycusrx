@@ -1,0 +1,32 @@
+ul.visuallyhidden id="top"
+  li
+    a href="#nav" title="Skip to navigation" accesskey="n"
+      | Skip to navigation
+  li
+    a href="#page" title="Skip to content" accesskey="c"
+      | Skip to content
+        
+div.header.clearfix
+  div.container
+    img.print.logo src="../images/print-logo.png" alt="鼎应信息技术"
+    div id="logo"
+      a href="/"
+        img src="../images/trans.gif" alt=""
+        em DingIT Responsive HTML Retina Ready Bootstrap Goodness
+    h3.tagline 电脑培训
+  div.menu_wrapper
+    nav.clearfix id="main_menu"
+      ul.accordmobile
+        li class=(controller_name == 'home' ? 'active' : nil)
+          = link_to "首页", root_path
+        li class=(controller_name == 'topics' ? 'active' : nil)
+          = link_to "社区", topics_path
+        li.parent
+          a href="javascript:void(0)"
+            | 数码产品
+            i
+          ul
+            li
+              a href="#" 台式机
+            li
+              a href="#" 笔记本

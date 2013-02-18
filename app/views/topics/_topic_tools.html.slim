@@ -1,0 +1,10 @@
+div.tools.pull-right
+  - if can? :update, topic
+    = link_to "", edit_topic_path(topic), :class => "icon-pencil", :title => "修改本帖"
+  - if can? :destroy, topic
+    = link_to "", topic_path(topic), :method => :delete, 'data-confirm' => t("common.confirm_delete"), :class => "icon-remove", :title => "删除本帖"
+  - if can? :manage, topic
+    - toggle_comments_closed_tip = topic.comments_closed? ? '允许回复' : '禁止回复'
+    = link_to toggle_comments_closed_tip, topic_toggle_comments_closed_path(topic), :method => :put, :title => toggle_comments_closed_tip
+    - toggle_sticky_tip = topic.sticky? ? '取消置顶' : '置顶此话题'
+    = link_to toggle_sticky_tip, topic_toggle_sticky_path(topic), :method => :put, :title => toggle_sticky_tip

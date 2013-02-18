@@ -1,0 +1,9 @@
+div.editor_toolbar
+  div.icons.pull-right
+    = link_to("", "#", :id => "topic_add_image", :title => t("topics.add_image"), :class => "icon-picture")
+    input type="file" id="topic_upload_images"
+  ul.pills style="..."    
+    li.edit.active
+      = link_to(t("common.editor_toolbar_edit"), "#")
+      li.preview
+        = link_to(t("common.editor_toolbar_preview"), "#")

@@ -1,0 +1,10 @@
+.high_replies_topics.box
+  h2.title 热门帖子
+  ul
+    - @topics.each do |item|
+      li
+        = user_avatar_tag(item.user, :small)
+        = link_to(item.title, topic_path(item))
+        span.count
+          = item.replies_count
+          | 回复

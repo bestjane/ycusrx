@@ -1,0 +1,27 @@
+div#page
+  = render "topics/nav"
+  div.container.clearfix id="main-content"
+    div.row-fluid.sidebar-right
+      div.span9.blog-detail.primary-column
+        div.form.box#reply
+          = simple_form_for([@commentable, @comment]) do |f|
+            = f.error_notification
+            label 回复内容：
+            div.control-grounp.edit_tools
+              label.control-label
+                div.controls
+                  = render "topics/editor_toolbar"
+            = f.text_area :content, :class => "topic_editor", :rows => "20"
+            div.btn-group
+              = f.submit t("common.save"), :class => "btn btn-primary", 'data-disable-with' => t("common.saving")
+              a href=custom_path(@commentable) class="btn"
+                | #{t("common.cancel")}
+            - if can? :destroy, @comment
+              = link_to "删除", [@commentable, @comment], :class => "pull-right btn btn-danger", :method => :delete, :data => {:confirm => "确定要删除此回复么？"}
+      div.span3.sidebar.secondary-column#secondary-nav
+        div.box
+          = "#{t("reply.topic_location")}："
+          br
+            = render_topic_title(@comment.commentable)  
+        div.box
+          = render_cell :topics, :reply_help_block

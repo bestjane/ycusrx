@@ -1,0 +1,14 @@
+<% if @comment.errors.blank? %>
+<% @current_page = 1 %>
+  if($("#replies").length == 0){
+    location.href = location.href;
+  }
+  else {
+    $("#replies .items").append('<%= escape_javascript(render("comment", :commentable => @commentable, :comment => @comment, :comment_counter => @commentable.comments_count, :display_edit => true)) %>')
+    $("#replies").find(".total b").text('<%= @commentable.comments_count + 1%>');
+    $("#replies .reply a.edit:last").css("display","inline-block");
+    Topics.replyCallback(1,'<%= escape_javascript(@msg) %>');
+  }
+<% else %>
+  Topics.replyCallback(0,'<%= escape_javascript(@msg) %>');
+<% end %>

@@ -1,0 +1,16 @@
+- if !node.blank?
+  div
+    h2
+      | #{node.name}
+    span.total  
+      | 共有 #{render_node_topics_count(node)} 个讨论主题
+- else        
+  div.sorts
+    span.lb
+      | 查看：
+    ul    
+      li class=(action_name == "index" ? 'active' : nil)
+        = link_to "默认", topics_path
+      li class=(action_name == "popular" ? 'active' : nil)
+        i.icon-heart
+        = link_to "优质帖子", popular_topics_path, :class => "popular"

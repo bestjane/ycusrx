@@ -1,0 +1,34 @@
+div#page
+  = render "topics/nav"
+  div.container.clearfix id="main-content"
+    div.row-fluid.sidebar-right
+      div.span9.blog-detail.primary-column
+        div.topics.box.hfeed#topic_show
+          div.topic.hentry
+            = render :partial => "topics/topic_info", :locals => { :topic => @topic }
+            div.body
+              = raw @topic.content_html
+            = render :partial => "topics/topic_tools", :locals => { :topic => @topic }
+            = social_share_button_tag("#{@topic.title} via: @#{AppConfig.twitter_id}")
+
+        - if @topic.comments_count == 0
+          div.no_result
+            = t("topics.no_replies")
+        - else
+          div.box.box_gray#replies
+            div.total
+              | 共收到
+              b
+                = @topic.comments_count
+              | 条回复
+            div.items
+              = render @comments, :commentable => @topic
+            - if @total_pages > 1
+              = paginate @comments, :param_name => :p, :outer_window => 3
+        - if current_user
+          div.form.box#reply
+            = render "editor_toolbar"
+            = render "comment_form"
+            span.body.helpblock
+      div.span3.sidebar.secondary-column#secondary-nav
+        = render "sidebar_for_help"

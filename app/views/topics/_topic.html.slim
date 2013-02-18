@@ -1,0 +1,19 @@
+div.topic.topic_line
+  div.pull-left.avatar
+    = user_avatar_tag(topic.user, :normal)
+  div.right_info
+    div.pull-right.replies
+      = link_to "#{topic.comments_count}", topic_path(topic), :class => "count state_false"
+    div.infos
+      div.title
+        = link_to(truncate(topic.title, :length => 100), topic_path(topic), :title => topic.title)
+      div.info
+        - if action_name != "node"
+          - topic.nodes.each do |node|
+            = render_node_name(node.name, node.id)
+        = user_name_tag(topic.user)
+        em
+          - if topic.last_replied_by.blank?
+            = raw t("common.created_at", :time => time_ago_in_words(topic.created_at))
+            - else  
+            = "#{t("common.last_by")} #{topic.last_replied_by} #{raw t("common.reply_at", :time => time_ago_in_words(topic.last_replied_at))}"

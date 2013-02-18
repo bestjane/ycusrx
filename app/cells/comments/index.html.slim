@@ -1,0 +1,19 @@
+.cell_comments.box{:id => "#{@commentable.class.name}_# @commentable.id}_cell_comments"
+  - if !@comments.blank?
+    = render :partial => "comment", :collection => @comments
+  - else
+    .no_result
+      = t("comments.no_comment")
+      | \.
+- if @current_user
+  .cell_comments_new.box{:id => "#{@commentable.class.name}_# @commentable.id}_cell_new_comment"
+    = form_for(@comment, :remote => true, :html => { :onsubmit => "App.loading(true);"}) do |f|
+      = f.hidden_field :commentable_type
+      = f.hidden_field :commentable_id
+      .clearfix
+        = f.text_area :body, :class => "long", :rows => "5"
+      .buttons
+        = f.submit t("comments.create_comment"), :class => "btn btn-primary"
+        span.help-inline Ctrl+Enter
+      span.help-block style="margin-top:20px;"
+        = render_cell :topics, :reply_help_block

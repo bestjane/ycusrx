@@ -1,0 +1,6 @@
+.sidebar
+  = render_cell :topics, :sidebar_for_new_topic_node, { :node => @node }
+  #topic_new_tip.box
+    h2= t("topics.tips_for_create_topic")
+    span.body.help-block
+      = render_cell :topics, :reply_help_block
