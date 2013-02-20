@@ -1,0 +1,47 @@
+- unless @about_train.blank?
+  h4#about-train
+    = @about_train.title
+  small
+    = @about_train.content
+    - unless @about_train.url.blank?
+      = link_to(" 详细...", @about_train.url)
+- unless @about_train_teachers.blank?
+  small 培训老师介绍：
+  div.well
+    div.thumbnails
+      - @about_train_teachers.each do |item|
+          li.span3
+            div.thumbnail
+              - if item.url.blank?
+                  = image_tag(item.cover.url, :style => "width:260px;height:180px")
+              - else
+                a href=item.url
+                  = image_tag(item.cover.url, :style => "width:260px;height:180px")
+              div.caption   
+                h5
+                  = item.title
+                p style="height:150px;"
+                  = truncate(item.content, :length => 80)
+                - unless item.url.blank?
+                  span
+                    = link_to("详细...", item.url)
+- unless @about_train_teachers.blank?
+  small 学员作品演示：
+  div.well
+    div.thumbnails
+      - @about_train_works.each do |item|
+          li.span3
+            div.thumbnail
+              - if item.url.blank?
+                  = image_tag(item.cover.url, :style => "width:260px;height:180px")
+              - else
+                a href=item.url
+                  = image_tag(item.cover.url, :style => "width:260px;height:180px")
+              div.caption   
+                h5
+                  = item.title
+                p style="height:50px;"
+                  = truncate(item.content, :length => 40)
+                - unless item.url.blank?
+                  span
+                    = link_to("详细...", item.url)

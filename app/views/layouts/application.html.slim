@@ -12,16 +12,21 @@ html
     = stylesheet_link_tag "front"
     = controller_stylesheet_link_tag
     = csrf_meta_tag
-  body
+  body style="padding-top:60px;"
     = render 'layouts/nav'
     div.container
       div.container-fluid#main
+        div.alert.alert-warn
+          button.close type="button" data-dismiss="alert" &times;
+          p
+            | 提示：本网站还处于开发阶段，数据以后可能会丢失，请知悉，并欢迎大家到社区进行测试及提出宝贵建议。
         - if controller_name == "topics"
           div.hidden-phone
             = render_breadcrumb
           div.feed_link.hidden-phone
             = link_to(raw("<span class='icon-plus'></span> 发布新贴"), new_topic_path)
-        = notice_message
+        - if controller_name != "home"
+          = notice_message
         == yield
     /= render 'layouts/footer'
     = javascript_include_tag "application"

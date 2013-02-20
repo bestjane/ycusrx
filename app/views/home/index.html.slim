@@ -1,0 +1,28 @@
+div.row
+  div.span2.bs-docs-sidebar
+    ul.nav.nav-list.bs-docs-sidenav.affix style="width:150px;margin-top:100px;"
+      li
+        a href="#about-us" style="width:120px;"
+          i.icon-chevron-right
+          | 关于我们
+      li
+        a href="#about-project" style="width:120px;"
+          i.icon-chevron-right
+          | 承接项目
+      li
+        a href="#about-train" style="width:120px;"
+          i.icon-chevron-right
+          | 培训介绍
+      li
+        a href="#about-digit" style="width:120px;"
+          i.icon-chevron-right
+          | 数码产品
+  div.span10
+    blockquote
+      = render_cell :home, :about_us
+    blockquote
+      = render_cell :home, :about_project
+    blockquote
+      = render_cell :home, :about_train
+    blockquote
+      = render_cell :home, :about_digit

@@ -1,0 +1,27 @@
+- unless @about_us.blank?
+  h4#about-us
+    = @about_us.title
+  small
+    = @about_us.content
+    - unless @about_us.url.blank?
+      = link_to(" 详细...", @about_us.url)
+- unless @about_us_shows.blank?
+  div.well
+    div.carousel.slide#carousel_us
+      div.carousel-inner
+        - first = true
+        - @about_us_shows.each do |item|
+          div.item class=(first ? 'active' : nil)
+            - first = false
+            - if item.url.blank?
+                = image_tag(item.cover.url, :style => "width:100%;")
+            - else
+              a href=item.url
+                = image_tag(item.cover.url, :style => "width:100%;")
+            div.carousel-caption   
+              h4
+                = item.title
+              p
+                = item.content
+      a class="carousel-control left" href="#carousel_us" data-slide="prev" ‹
+      a class="carousel-control right" href="#carousel_us" data-slide="next" ›

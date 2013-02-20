@@ -11,4 +11,4 @@ div.infos
     = raw t("common.created_at", :time => time_ago_in_words(topic.created_at))
     - if !topic.last_replied_by.blank?
       = " #{t("common.last_by")} #{topic.last_replied_by} #{raw t("common.reply_at", :time => time_ago_in_words(topic.last_replied_at))}"
-      = " 共#{topic.hit}#{t("common.read_times")}"
+    = " 共#{topic.hit}#{t("common.read_times")}"

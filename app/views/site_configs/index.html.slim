@@ -1,0 +1,25 @@
+h1 Listing site_configs
+
+table
+  tr
+    th Key
+    th Cover
+    th Title
+    th Content
+    th
+    th
+    th
+
+  - @site_configs.each do |site_config|
+    tr
+      td = site_config.key
+      td = site_config.cover
+      td = site_config.title
+      td = site_config.content
+      td = link_to 'Show', site_config
+      td = link_to 'Edit', edit_site_config_path(site_config)
+      td = link_to 'Destroy', site_config, :confirm => 'Are you sure?', :method => :delete
+
+br
+
+= link_to 'New Site config', new_site_config_path

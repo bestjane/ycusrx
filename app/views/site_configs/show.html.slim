@@ -1,0 +1,18 @@
+p#notice = notice
+
+p
+  strong Key:
+  = @site_config.key
+p
+  strong Cover:
+  = @site_config.cover
+p
+  strong Title:
+  = @site_config.title
+p
+  strong Content:
+  = @site_config.content
+
+= link_to 'Edit', edit_site_config_path(@site_config)
+'|
+= link_to 'Back', site_configs_path

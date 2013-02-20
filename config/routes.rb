@@ -1,4 +1,7 @@
 DingIT::Application.routes.draw do
+  resources :site_configs
+
+
   resources :photos
 
 
