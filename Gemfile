@@ -23,6 +23,8 @@ gem 'cells'
 
 gem 'social-share-button'
 gem 'jquery-atwho-rails', '0.1.6'
+gem 'rest-client'
+gem 'carrierwave-aliyun'
 
 #
 # Markdown
