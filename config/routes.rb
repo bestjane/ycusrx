@@ -3,8 +3,8 @@ DingIT::Application.routes.draw do
 
 
   resources :photos
-
-
+  
+  
   resources :comments
   
   
@@ -13,7 +13,7 @@ DingIT::Application.routes.draw do
     resources :comments
     put :toggle_comments_closed
     put :toggle_sticky
-
+    
     member do
       post :reply
       post :favorite
@@ -86,7 +86,7 @@ DingIT::Application.routes.draw do
   
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'home#index'
+  root :to => 'topics#index'
   
   # See how all your routes lay out with "rake routes"
   

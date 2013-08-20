@@ -8,7 +8,7 @@ html
     meta name="keywords" content="template language"
     meta name="viewport" content="width=device-width initial-scale=1.0"
     meta name="apple-mobile-web-app-capable" content="yes"
-      
+
     = stylesheet_link_tag "front"
     = controller_stylesheet_link_tag
     = csrf_meta_tag
@@ -16,10 +16,6 @@ html
     = render 'layouts/nav'
     div.container
       div.container-fluid#main
-        div.alert.alert-warn
-          /button.close type="button" data-dismiss="alert" &times;
-          p
-            | 提示：本网站还处于开发阶段，数据以后可能会丢失，请知悉，并欢迎大家到社区进行测试及提出宝贵建议，QQ:2330050827。
         - if controller_name == "topics"
           div.hidden-phone
             = render_breadcrumb
